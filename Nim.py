@@ -1,6 +1,8 @@
 # подключаем модуль для работы со случайными числами
 import random
 
+from hello_function import hello
+
 # формируем кучки с камнями
 stack_1 = random.randint(2, 10)
 stack_2 = random.randint(2, 10)
@@ -65,6 +67,11 @@ def take_computer():
 
 # выводим на старте состояние кучек
 result()
+
+# спрашиваем у игрока его имя и приветствуем его
+name = input('Как вас зовут? ')
+print(hello(name))
+
 # запускаем бесконечный цикл
 while True:
     # если ходит компьютер
@@ -78,8 +85,8 @@ while True:
     # если ходит игрок
     else:
         # спрашиваем у него номер кучки и количество камней
-        select = int(input('Выберите кучку: '))
-        taken = int(input('Сколько камней забрать: '))
+        select = int(input(name.title() + ', выберите кучку: '))
+        taken = int(input(name.title() + ', сколько камней забрать: '))
         # если игрок выбрал первую кучку — берём оттуда
         if select == 1:
             stack_1 = take(stack_1, 1)
